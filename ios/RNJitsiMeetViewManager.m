@@ -44,13 +44,15 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo)
         JitsiMeetConferenceOptions *options = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {        
             builder.room = urlString;
             builder.userInfo = _userInfo;
-            builder.setFeatureFlag("add-people.enabled", withBoolean: false);
-            builder.setFeatureFlag("chat.enabled", withBoolean: false);
-            builder.setFeatureFlag("ios.recording.enabled", withBoolean: false);
-            builder.setFeatureFlag("live-streaming.enabled", withBoolean: false);
-            builder.setFeatureFlag("meeting-name.enabled", withBoolean: false);
-            builder.setFeatureFlag("recording.enabled", withBoolean: false);
-            builder.setFeatureFlag("meeting-password.enabled", withBoolean: false);
+            [builder setFeatureFlag:@"add-people.enabled" withBoolean:NO];
+            [builder setFeatureFlag:@"chat.enabled" withBoolean:NO];
+            [builder setFeatureFlag:@"ios.recording.enabled" withBoolean:NO];
+            [builder setFeatureFlag:@"live-streaming.enabled" withBoolean:NO];
+            [builder setFeatureFlag:@"meeting-name.enabled" withBoolean:NO];
+            [builder setFeatureFlag:@"recording.enabled" withBoolean:NO];
+            [builder setFeatureFlag:@"meeting-password.enabled" withBoolean:NO];
+            [builder setFeatureFlag:@"ios.recording.enabled" withBoolean:NO];
+            [builder setFeatureFlag:@"invite.enabled" withBoolean:NO];
         }];
         [jitsiMeetView join:options];
     });
