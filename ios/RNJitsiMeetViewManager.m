@@ -49,9 +49,7 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo)
             [builder setFeatureFlag:@"ios.recording.enabled" withBoolean:NO];
             [builder setFeatureFlag:@"live-streaming.enabled" withBoolean:NO];
             [builder setFeatureFlag:@"meeting-name.enabled" withBoolean:NO];
-            [builder setFeatureFlag:@"recording.enabled" withBoolean:NO];
             [builder setFeatureFlag:@"meeting-password.enabled" withBoolean:NO];
-            [builder setFeatureFlag:@"ios.recording.enabled" withBoolean:NO];
             [builder setFeatureFlag:@"invite.enabled" withBoolean:NO];
         }];
         [jitsiMeetView join:options];
@@ -108,7 +106,7 @@ RCT_EXPORT_METHOD(endCall)
         return;
     }
 
-    jitsiMeetView.onConferenceTerminated(data);
+    jitsiMeetView.conferenceTerminated(data); onConferenceTerminated(data);
 }
 
 - (void)conferenceWillJoin:(NSDictionary *)data {
