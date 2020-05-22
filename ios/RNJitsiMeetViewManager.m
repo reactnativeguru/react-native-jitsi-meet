@@ -106,7 +106,7 @@ RCT_EXPORT_METHOD(endCall)
         return;
     }
 
-    jitsiMeetView.conferenceTerminated(data); onConferenceTerminated(data);
+    jitsiMeetView.conferenceTerminated(data);
 }
 
 - (void)conferenceWillJoin:(NSDictionary *)data {
